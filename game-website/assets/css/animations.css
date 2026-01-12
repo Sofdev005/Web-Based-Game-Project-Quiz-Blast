@@ -1,0 +1,85 @@
+/* --- General Animations --- */
+.screen {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* --- Typewriter Effect for Questions --- */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}
+
+#question-text.typing {
+    overflow: hidden;
+    border-right: .15em solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .1rem;
+    animation: 
+        typing 2s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* --- Answer Feedback Animations --- */
+.option-btn {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.option-btn.correct {
+    animation: pulse-correct 0.6s ease;
+}
+
+.option-btn.incorrect {
+    animation: shake-incorrect 0.6s ease;
+}
+
+@keyframes pulse-correct {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake-incorrect {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* --- Score Update Animation --- */
+#score-display.score-increase span {
+    animation: score-up 0.5s ease-in-out;
+}
+
+#score-display.score-decrease span {
+    animation: score-down 0.5s ease-in-out;
+}
+
+@keyframes score-up {
+    from { color: var(--correct-color); transform: scale(1.5); }
+    to { color: var(--primary-color); transform: scale(1); }
+}
+
+@keyframes score-down {
+    from { color: var(--incorrect-color); transform: scale(0.8); }
+    to { color: var(--primary-color); transform: scale(1); }
+}
