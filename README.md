@@ -32,3 +32,7 @@ The game is designed around a simple but expandable gameplay loop:
 * Game state is dynamically managed using JavaScript  
 * User actions directly affect score and progression  
 * Architecture allows easy extension (difficulty scaling, leaderboard, persistence)
+
+##  Gameplay
+![gameplay](https://github.com/user-attachments/assets/c633bcee-ba3c-4586-92b1-03ef6876225e)
+
